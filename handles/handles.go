@@ -1,9 +1,10 @@
 package handles
 
 import (
+	"claude2/model"
+	"claude2/service"
+
 	"github.com/gin-gonic/gin"
-	"github.com/oldweipro/claude-to-chatgpt/model"
-	"github.com/oldweipro/claude-to-chatgpt/service"
 )
 
 func OptionsHandler(c *gin.Context) {

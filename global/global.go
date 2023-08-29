@@ -1,6 +1,6 @@
 package global
 
-import "github.com/oldweipro/claude-to-chatgpt/model"
+import "claude2/model"
 
 var (
 	ServerConfig model.ServerConfig

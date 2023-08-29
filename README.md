@@ -4,10 +4,10 @@
 
 ## 介绍
 
-本项目是把 [Claude](https://claude.ai) 聊天功能接口适配到 OpenAI API 标准接口。
+[Claude2](https://claude.ai) 聊天功能接口转 OpenAI API 标准接口
 
 当启动本项目后,就可以按照 [v1/chat/completions](https://platform.openai.com/docs/api-reference/chat)
-的接口文档调用本项目接口 `http://127.0.0.1:8787/v1/chat/completions`
+的接口文档调用本项目接口 `http://127.0.0.1:8000/v1/chat/completions`
 得到与 [OpenAI API](https://platform.openai.com/docs/api-reference/chat)
 相同的数据结构,方便已经对 [OpenAI API](https://platform.openai.com/docs/api-reference/chat) 接口进行开发的用户快速切换。
 
@@ -22,7 +22,7 @@
 ## 获取源码
 
 ```
-git clone https://github.com/oldweipro/claude-to-chatgpt.git
+git clone https://github.com/gngpp/claude2.git
 ```
 
 ## 运行
@@ -32,7 +32,7 @@ git clone https://github.com/oldweipro/claude-to-chatgpt.git
 手动构建运行
 
 ```shell
-docker build -t oldweipro/claude-to-chatgpt:latest . && docker run -p 8787:8787 --name claude-to-chatgpt oldweipro/claude-to-chatgpt:latest
+docker build -t gngpp/claude2:latest . && docker run -p 8787:8787 --name claude-to-chatgpt gngpp/claude2:latest
 ```
 
 ### 编辑器
@@ -84,26 +84,6 @@ go run main.go -c config-dev.yaml -http_proxy http://127.0.0.1:7890
 
 ## 部署
 
-### 官方镜像部署
-
-环境变量
-
-**CLAUDE_SESSION_KEYS**
-
-设置session keys,用于认证和授权Claude API。可以设置多个key,使用`,`隔开。
-
-**CLAUDE_HTTP_PROXY**
-
-设置Claude使用的HTTP代理地址。
-
-**CLAUDE_BASE_URL**
-
-设置Claude API的基础地址,也就是服务的访问URL。
-
-```shell
-docker pull oldweipro/claude-to-chatgpt:latest && docker run -p 8787:8787 --name claude-to-chatgpt oldweipro/claude-to-chatgpt:latest
-```
-
 ### 手动编译
 
 可针对不同平台编译生成可执行文件。
@@ -138,3 +118,5 @@ CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build -o claude-to-chatgpt-macos_x64
 | GOOS        | 目标操作系统  | linux, windows, darwin等  |
 | GOARCH      | 目标架构    | amd64, 386, arm等         |
 | go build    | 执行Go编译  |                          |
+
+原项目：[claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)

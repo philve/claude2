@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/fsnotify/fsnotify"
-	"github.com/oldweipro/claude-to-chatgpt/global"
-	"github.com/spf13/viper"
-	"gopkg.in/yaml.v3"
+	"claude2/global"
 	"os"
 	"strings"
+
+	"github.com/fsnotify/fsnotify"
+	"github.com/spf13/viper"
+	"gopkg.in/yaml.v3"
 )
 
 const (

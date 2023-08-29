@@ -1,9 +1,10 @@
 package service
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/oldweipro/claude-to-chatgpt/global"
+	"claude2/global"
 	"strings"
+
+	"github.com/gin-gonic/gin"
 )
 
 func GetSessionKey(c *gin.Context) (sk string) {

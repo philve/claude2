@@ -7,7 +7,7 @@
 This project adapts the chat functionality interface of [Claude](https://claude.ai) to the standard OpenAI API
 interfaces.
 
-After starting this project, you can call the interface `http://127.0.0.1:8787/v1/chat/completions` of this project
+After starting this project, you can call the interface `http://127.0.0.1:8080/v1/chat/completions` of this project
 according to the interface documentation of [v1/chat/completions](https://platform.openai.com/docs/api-reference/chat)
 to get the same data structure returned by [OpenAI API](https://platform.openai.com/docs/api-reference/chat). This
 facilitates users who have developed based on the interface
@@ -24,18 +24,10 @@ Requires [Go](https://go.dev/dl/) version 1.20 or above.
 ## Get Source Code
 
 ```
-git clone https://github.com/oldweipro/claude-to-chatgpt.git
+git clone https://github.com/gngpp/claude2.git
 ```
 
 ## Run
-
-### Docker
-
-Manual build run
-
-```shell
-docker build -t oldweipro/claude-to-chatgpt:latest . && docker run -p 8787:8787 --name claude-to-chatgpt oldweipro/claude-to-chatgpt:latest
-```
 
 ### IDE
 
@@ -103,7 +95,7 @@ Set the HTTP proxy address used by Claude.
 Set the base address of Claude API, which is the access URL of the service.
 
 ```shell
-docker pull oldweipro/claude-to-chatgpt:latest && docker run -p 8787:8787 --name claude-to-chatgpt oldweipro/claude-to-chatgpt:latest
+docker pull gngpp/claude2:latest && docker run -p 8787:8787 --name claude-to-chatgpt gngpp/claude2:latest
 ```
 
 ### Manual Compile
@@ -140,3 +132,5 @@ Copy the compiled executable file to the corresponding server directory, grant e
 | GOOS        | Target operating system | linux, windows, darwin etc.               |
 | GOARCH      | Target architecture     | amd64, 386, arm etc.                      | 
 | go build    | Execute Go compile      |                                           |
+
+Origin：[claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)

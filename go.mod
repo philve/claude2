@@ -1,4 +1,4 @@
-module github.com/gngpp/claude2
+module claude2
 
 go 1.20
 
@@ -8,7 +8,7 @@ require (
 	github.com/fsnotify/fsnotify v1.6.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/google/uuid v1.3.0
-	github.com/oldweipro/claude-to-chatgpt v0.0.3
+	github.com/gngpp/claude2 v0.0.3
 	github.com/spf13/viper v1.16.0
 	gopkg.in/yaml.v3 v3.0.1
 )

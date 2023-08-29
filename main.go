@@ -1,10 +1,11 @@
 package main
 
 import (
+	"claude2/handles"
+	"claude2/initialize"
+	"claude2/middleware"
+
 	"github.com/gin-gonic/gin"
-	"github.com/oldweipro/claude-to-chatgpt/handles"
-	"github.com/oldweipro/claude-to-chatgpt/initialize"
-	"github.com/oldweipro/claude-to-chatgpt/middleware"
 )
 
 func main() {
@@ -19,7 +20,7 @@ func main() {
 	})
 	r.OPTIONS("/v1/chat/completions", handles.OptionsHandler)
 	r.POST("/v1/chat/completions", handles.ChatCompletionsHandler)
-	err := r.Run(":8787")
+	err := r.Run(":8000")
 	if err != nil {
 		return
 	}

@@ -6,14 +6,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"claude2/global"
+	"io"
+	"claude2/model"
+	"time"
+
 	http2 "github.com/bogdanfinn/fhttp"
-	"github.com/bogdanfinn/tls-client"
+	tls_client "github.com/bogdanfinn/tls-client"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/oldweipro/claude-to-chatgpt/global"
-	"github.com/oldweipro/claude-to-chatgpt/model"
-	"io"
-	"time"
 )
 
 var (

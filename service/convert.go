@@ -3,7 +3,7 @@ package service
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/oldweipro/claude-to-chatgpt/model"
+	"claude2/model"
 )
 
 // OpenaiToClaudeParams 转换成claude的参数
