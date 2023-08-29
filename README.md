@@ -1,6 +1,6 @@
 # Claude2
 
-[Claude2](https://claude.ai) 聊天功能接口转 OpenAI API 标准接口
+[Claude2](https://claude.ai) 转 OpenAI API 标准接口, Origin: [claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
 
 ```shell
 curl https://claude2-0bbi.onrender.com/v1/chat/completions \
@@ -45,5 +45,3 @@ go run main.go -c config-dev.yaml -http_proxy http://127.0.0.1:8000
 | claude         | Claude 相关配置                                                                                                                                                                            |                       |
 | - session-keys | 当前对话session唯一标识数组,必填<br/>支持在 `Header Authorization` 中设置 `Bearer sessionKey`<br/>参考 [Authentication](https://platform.openai.com/docs/api-reference/authentication)<br/>Header优先级大于配置文件 | [sk-1, sk-2]          | 
 | http-proxy     | 代理配置,可选<br/>(包含但不限于)注意在Docker中的连通性<br/>可能需要更换`http://127.0.0.1:8000`为宿主机IP<br/>如`http://192.168.1.2:8000`                                                                              | http://127.0.0.1:8000 |
-
-原项目：[claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
