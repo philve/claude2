@@ -20,7 +20,7 @@ curl https://claude2-0bbi.onrender.com/v1/chat/completions \
 ```
 git clone https://github.com/gngpp/claude2.git && cd claude2
 go mod tidy
-go build -ldflags "-s -w -extldflags -static -extldflags -static" main.go
+go build -ldflags "-s -w -extldflags -static" main.go
 ```
 
 ### 其他
