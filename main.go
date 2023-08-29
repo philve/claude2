@@ -11,6 +11,7 @@ func main() {
 	initialize.NewViper()
 	r := gin.Default()
 	r.Use(middleware.CORS)
+	r.SetTrustedProxies(nil)
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "pong",
