@@ -1,7 +1,5 @@
 # Claude2
 
-简体中文 | [English](README.en_US.md)
-
 ## 介绍
 
 [Claude2](https://claude.ai) 聊天功能接口转 OpenAI API 标准接口
