@@ -1,6 +1,6 @@
 # Claude2
 
-[Claude2](https://claude.ai) 转 OpenAI API 标准接口, Origin: [claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
+[Claude2](https://claude.ai) 转 OpenAI API 标准接口，Origin: [claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
 
 ```shell
 curl https://claude2-0bbi.onrender.com/v1/chat/completions \
