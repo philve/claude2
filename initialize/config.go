@@ -1,10 +1,10 @@
 package initialize
 
 import (
+	"claude2/global"
 	"encoding/json"
 	"flag"
 	"fmt"
-	"claude2/global"
 	"os"
 	"strings"
 
@@ -25,7 +25,7 @@ var (
 
 func init() {
 	flag.StringVar(&configFlag, "c", "", "choose config file.")
-	flag.StringVar(&httpProxyFlag, "http_proxy", "", "set http_proxy, for example http://127.0.0.1:7890")
+	flag.StringVar(&httpProxyFlag, "http_proxy", "", "set http_proxy, for example http://127.0.0.1:8000")
 	flag.StringVar(&baseUrlFlag, "base_url", "", "set base_url, for example https://claude.ai")
 }
 
