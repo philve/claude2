@@ -1,13 +1,11 @@
 # Claude2
 
-## 介绍
-
 [Claude2](https://claude.ai) 聊天功能接口转 OpenAI API 标准接口
 
 ```shell
 curl https://claude2-0bbi.onrender.com/v1/chat/completions \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer sk-api-xyhelper-cn-free-token-for-everyone-xyhelper" \
+  -H "Authorization: Bearer sk-xxxxxxxxxxxxxxxx" \
   -d '{
     "model": "gpt-3.5-turbo",
     "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "Hello!"}],
