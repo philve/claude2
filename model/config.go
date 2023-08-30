@@ -6,9 +6,12 @@ import (
 )
 
 type ServerConfig struct {
-	Claude    Claude `mapstructure:"claude" json:"claude" yaml:"claude"`
+	Claude    *Claude `mapstructure:"claude" json:"claude" yaml:"claude"`
 	HttpProxy string `mapstructure:"http-proxy" json:"http-proxy" yaml:"http-proxy"`
 	BaseUrl   string `mapstructure:"base-url" json:"base-url" yaml:"base-url"`
+	TlsCert   string `mapstructure:"tls-cert" json:"tls-cert" yaml:"tls-cert"`
+	TlsKey    string `mapstructure:"tls-key" json:"tls-key" yaml:"tls-key"`
+	ListenHost string `mapstructure:"listen-host" json:"listen-host" yaml:"listen-host"`
 }
 
 type Claude struct {

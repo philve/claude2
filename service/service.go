@@ -3,12 +3,12 @@ package service
 import (
 	"bufio"
 	"bytes"
+	"claude2/initialize"
+	"claude2/model"
 	"encoding/json"
 	"errors"
 	"fmt"
-	"claude2/global"
 	"io"
-	"claude2/model"
 	"time"
 
 	http2 "github.com/bogdanfinn/fhttp"
@@ -39,8 +39,8 @@ func RequestClaudeToResponse(c *gin.Context, params *model.ChatMessageRequest, s
 		HandleErrorResponse(c, err.Error())
 		return
 	}
-	appendMessageApi := global.ServerConfig.BaseUrl + "/api/append_message"
-	err = client.SetProxy(global.ServerConfig.HttpProxy)
+	appendMessageApi := initialize.ServerConfig.BaseUrl + "/api/append_message"
+	err = client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		HandleErrorResponse(c, err.Error())
 		return
@@ -167,8 +167,8 @@ func CreateChatConversations(newStringUuid, sessionKey string) (model.ChatConver
 	if err != nil {
 		return chatConversationResponse, err
 	}
-	chatConversationsApi := global.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations"
-	err = client.SetProxy(global.ServerConfig.HttpProxy)
+	chatConversationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations"
+	err = client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		return chatConversationResponse, err
 	}
@@ -209,11 +209,11 @@ func DeleteChatConversations(newStringUuid, sessionKey string) error {
 	if err != nil {
 		return err
 	}
-	err = client.SetProxy(global.ServerConfig.HttpProxy)
+	err = client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		return err
 	}
-	chatConversationsApi := global.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations/"
+	chatConversationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations/"
 	request, err := http2.NewRequest(http2.MethodDelete, chatConversationsApi+newStringUuid, nil)
 	if err != nil {
 		return err
@@ -239,11 +239,11 @@ func DeleteChatConversations(newStringUuid, sessionKey string) error {
 }
 
 func GetOrganizations(sessionKey string) (string, error) {
-	err := client.SetProxy(global.ServerConfig.HttpProxy)
+	err := client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		return "", err
 	}
-	organizationsApi := global.ServerConfig.BaseUrl + "/api/organizations"
+	organizationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations"
 	request, err := http2.NewRequest(http2.MethodGet, organizationsApi, nil)
 
 	if err != nil {

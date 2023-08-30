@@ -1,7 +1,7 @@
 package service
 
 import (
-	"claude2/global"
+	"claude2/initialize"
 	"strings"
 
 	"github.com/gin-gonic/gin"
@@ -14,7 +14,7 @@ func GetSessionKey(c *gin.Context) (sk string) {
 		sk = "sessionKey=" + auth[7:]
 	}
 	if sk == "" {
-		sk = global.ServerConfig.Claude.GetSessionKey()
+		sk = initialize.ServerConfig.Claude.GetSessionKey()
 	}
 	return sk
 }

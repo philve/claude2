@@ -20,8 +20,15 @@ func main() {
 	})
 	r.OPTIONS("/v1/chat/completions", handles.OptionsHandler)
 	r.POST("/v1/chat/completions", handles.ChatCompletionsHandler)
-	err := r.Run(":8000")
-	if err != nil {
-		return
+
+	var conf = &initialize.ServerConfig
+	if conf.TlsCert != "" && conf.TlsKey != "" {
+		r.RunTLS(conf.ListenHost, conf.TlsCert, conf.TlsKey)
+	} else {
+		err := r.Run(conf.ListenHost)
+		if err != nil {
+			return
+		}
 	}
+
 }
