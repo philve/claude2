@@ -14,6 +14,7 @@ import (
 )
 
 var ServerConfig = model.ServerConfig {
+	ListenHost: "0.0.0.0:8000",
 	Claude: &model.Claude{},
 }
 
@@ -85,9 +86,6 @@ func NewViper() {
 		fmt.Println(err)
 	}
 	// 设置命令参数
-	if baseUrlFlag != "" {
-		ServerConfig.BaseUrl = baseUrlFlag
-	}
 	if httpProxyFlag != "" {
 		ServerConfig.HttpProxy = httpProxyFlag
 	}
@@ -105,10 +103,6 @@ func NewViper() {
 	if keysEnv != "" {
 		keys := strings.Split(keysEnv, ",")
 		ServerConfig.Claude.SessionKeys = append(ServerConfig.Claude.SessionKeys, keys...)
-	}
-	baseUrlEnv := os.Getenv("CLAUDE_BASE_URL")
-	if baseUrlEnv != "" {
-		ServerConfig.BaseUrl = baseUrlEnv
 	}
 	httpProxyEnv := os.Getenv("CLAUDE_HTTP_PROXY")
 	if httpProxyEnv != "" {

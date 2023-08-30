@@ -39,7 +39,6 @@ func RequestClaudeToResponse(c *gin.Context, params *model.ChatMessageRequest, s
 		HandleErrorResponse(c, err.Error())
 		return
 	}
-	appendMessageApi := initialize.ServerConfig.BaseUrl + "/api/append_message"
 	err = client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		HandleErrorResponse(c, err.Error())
@@ -66,7 +65,7 @@ func RequestClaudeToResponse(c *gin.Context, params *model.ChatMessageRequest, s
 		HandleErrorResponse(c, err.Error())
 		return
 	}
-	request, err := http2.NewRequest(http2.MethodPost, appendMessageApi, bytes.NewBuffer(marshal))
+	request, err := http2.NewRequest(http2.MethodPost, "https://claude.ai/api/append_message", bytes.NewBuffer(marshal))
 	if err != nil {
 		HandleErrorResponse(c, err.Error())
 		return
@@ -167,7 +166,7 @@ func CreateChatConversations(newStringUuid, sessionKey string) (model.ChatConver
 	if err != nil {
 		return chatConversationResponse, err
 	}
-	chatConversationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations"
+	chatConversationsApi := "https://claude.ai/api/organizations/" + organizationUuid + "/chat_conversations"
 	err = client.SetProxy(initialize.ServerConfig.HttpProxy)
 	if err != nil {
 		return chatConversationResponse, err
@@ -213,7 +212,7 @@ func DeleteChatConversations(newStringUuid, sessionKey string) error {
 	if err != nil {
 		return err
 	}
-	chatConversationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations/" + organizationUuid + "/chat_conversations/"
+	chatConversationsApi := "https://claude.ai/api/organizations/" + organizationUuid + "/chat_conversations/"
 	request, err := http2.NewRequest(http2.MethodDelete, chatConversationsApi+newStringUuid, nil)
 	if err != nil {
 		return err
@@ -243,7 +242,7 @@ func GetOrganizations(sessionKey string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	organizationsApi := initialize.ServerConfig.BaseUrl + "/api/organizations"
+	organizationsApi := "https://claude.ai/api/organizations"
 	request, err := http2.NewRequest(http2.MethodGet, organizationsApi, nil)
 
 	if err != nil {
