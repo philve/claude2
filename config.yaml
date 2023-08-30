@@ -1,8 +1,8 @@
 claude:
   session-keys: []
   lock: {}
-http-proxy: ""
-base-url: ""
-tls-cert: ""
-tls-key: ""
+http-proxy: 
+base-url: 
+tls-cert: 
+tls-key: 
 listen-host: "0.0.0.0:8000"
