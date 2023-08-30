@@ -41,7 +41,9 @@ go run main.go -c config-dev.yaml -http_proxy http://127.0.0.1:8000
 
 | 配置项            | 说明                                                                                                                                                                                     | 示例值                   |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|  
-| base-url       | Claude服务地址,可选                                                                                                                                                                          | https://claude.ai     |
 | claude         | Claude 相关配置                                                                                                                                                                            |                       |
-| - session-keys | 当前对话session唯一标识数组,必填<br/>支持在 `Header Authorization` 中设置 `Bearer sessionKey`<br/>参考 [Authentication](https://platform.openai.com/docs/api-reference/authentication)<br/>Header优先级大于配置文件 | [sk-1, sk-2]          | 
+| session-keys | 当前对话session唯一标识数组,非必填<br/>支持在 `Header Authorization` 中设置 `Bearer sessionKey`<br/>参考 [Authentication](https://platform.openai.com/docs/api-reference/authentication)<br/>Header优先级大于配置文件 | [sk-1, sk-2]          | 
 | http-proxy     | 代理配置,可选<br/>(包含但不限于)注意在Docker中的连通性<br/>可能需要更换`http://127.0.0.1:8000`为宿主机IP<br/>如`http://192.168.1.2:8000`                                                                              | http://127.0.0.1:8000 |
+| tls-cert     | TLS证书路径                                                                        | /etc/tls.pem |
+| tls-key     | TLS证书密钥路径                                                                        | /etc/tls.key |
+| listen-host     | 监听主机                                                                        | 0.0.0.0:8000 |
