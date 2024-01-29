@@ -1,6 +1,6 @@
 # Claude2
 
-[Claude2](https://claude.ai) 转 OpenAI API 标准接口，Origin: [claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
+[Claude2](https://claude.ai) Convert to OpenAI API standard interface，Origin: [claude-to-chatgpt](https://github.com/oldweipro/claude-to-chatgpt)
 
 ```shell
 curl https://claude2-0bbi.onrender.com/v1/chat/completions \
@@ -13,7 +13,7 @@ curl https://claude2-0bbi.onrender.com/v1/chat/completions \
   }'
 ```
 
-## 编译
+## Compile
 
 [Go](https://go.dev/dl/) 1.20 及以上版本。
 
@@ -23,7 +23,7 @@ go mod tidy
 go build -ldflags "-s -w -extldflags -static" main.go
 ```
 
-### 其他
+### other
 
 使用 `-c` 指定配置文件 `config-dev.yaml`
 
@@ -33,17 +33,18 @@ go build -ldflags "-s -w -extldflags -static" main.go
 go run main.go -c config-dev.yaml -http_proxy http://127.0.0.1:8000
 ```
 
-## 配置
+## arrangement
 
-配置文件如果不存在,程序会自动创建 `config.yaml`。
+If the configuration file does not exist, the program will automatically create 'config.yaml'.
 
-如果启动后填写的配置信息有误,直接修改配置文件并保存即可,程序会自动重新加载。
+If the configuration information filled in after startup is incorrect, you can directly modify the configuration file and save it, and the program will automatically reload.
 
-| 配置项            | 说明                                                                                                                                                                                     | 示例值                   |
+| Configuration items            | Description                                                                                                                                                                                   | Example values                  |
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|  
-| claude         | Claude 相关配置                                                                                                                                                                            |                       |
-| session-keys | 当前对话session唯一标识数组,非必填<br/>支持在 `Header Authorization` 中设置 `Bearer sessionKey`<br/>参考 [Authentication](https://platform.openai.com/docs/api-reference/authentication)<br/>Header优先级大于配置文件 | [sk-1, sk-2]          | 
-| http-proxy     | 代理配置,可选<br/>(包含但不限于)注意在Docker中的连通性<br/>可能需要更换`http://127.0.0.1:8000`为宿主机IP<br/>如`http://192.168.1.2:8000`                                                                              | http://127.0.0.1:8000 |
-| tls-cert     | TLS证书路径                                                                        | /etc/tls.pem |
-| tls-key     | TLS证书密钥路径                                                                        | /etc/tls.key |
-| listen-host     | 监听主机                                                                        | 0.0.0.0:8000 |
+| claude         | Claude related configuration                                                                                                                                                                           |                       |
+| session-keys | Array of unique identifiers of the current conversation session,
+Optional<br/>Support setting `Bearer sessionKey` in `Header Authorization`<br/>Reference [Authentication](https://platform.openai.com/docs/api-reference/authentication)<br/>Header priority level greater than profile | [sk-1, sk-2]          | 
+| http-proxy     | Proxy configuration, optional<br/>(Including but not limited to) Pay attention to the connectivity in Docker<br/>You may need to replace `http://127.0.0.1:8000` with the host IP<br/>For example` http://192.168.1.2:8000`                            | http://127.0.0.1:8000 |
+| tls-cert     | TLS certificate path                                                                        | /etc/tls.pem |
+| tls-key     | TLS certificate key path                                                                      | /etc/tls.key |
+| listen-host     | Listening host                                                                     | 0.0.0.0:8000 |
