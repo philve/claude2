@@ -15,7 +15,7 @@ curl https://claude2-0bbi.onrender.com/v1/chat/completions \
 
 ## Compile
 
-[Go](https://go.dev/dl/) 1.20 及以上版本。
+[Go](https://go.dev/dl/) 1.20 and above.
 
 ```
 git clone https://github.com/gngpp/claude2.git && cd claude2
@@ -25,9 +25,9 @@ go build -ldflags "-s -w -extldflags -static" main.go
 
 ### other
 
-使用 `-c` 指定配置文件 `config-dev.yaml`
+Use -c to specify the configuration file `config-dev.yaml`
 
-使用 `-http_proxy` 设置 `http_proxy` 例如 `http://127.0.0.1:8000`
+Use `-http_proxy` to set `http_proxy` e.g. `http://127.0.0.1:8000`
 
 ```shell
 go run main.go -c config-dev.yaml -http_proxy http://127.0.0.1:8000
